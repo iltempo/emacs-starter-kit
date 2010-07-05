@@ -75,4 +75,15 @@
 (require 'textmate)
 (textmate-mode)
 
+(require 'whitespace)
+(add-hook 'ruby-mode-hook 'whitespace-mode)
+
+(global-set-key (kbd "S-<up>") 'next-multiframe-window)
+(global-set-key (kbd "S-<down>") 'previous-multiframe-window)
+
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
 ;;; init.el ends here
