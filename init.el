@@ -73,4 +73,7 @@
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
+(require 'textmate)
+(textmate-mode)
+
 ;;; init.el ends here
