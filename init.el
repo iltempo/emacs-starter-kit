@@ -87,7 +87,8 @@
 (global-set-key (kbd "S-<up>") 'next-multiframe-window)
 (global-set-key (kbd "S-<down>") 'previous-multiframe-window)
 
-(color-theme-blackboard)
+(if window-system
+  (color-theme-blackboard))
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
