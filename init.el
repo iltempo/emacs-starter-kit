@@ -72,11 +72,17 @@
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
+(add-to-list 'load-path (concat dotfiles-dir "/iltempo"))
+(add-to-list 'load-path (concat dotfiles-dir "/iltempo/feature-mode"))
+(regen-autoloads)
+
 (require 'textmate)
 (textmate-mode)
 
 (require 'whitespace)
 (add-hook 'ruby-mode-hook 'whitespace-mode)
+
+(require 'feature-mode)
 
 (global-set-key (kbd "S-<up>") 'next-multiframe-window)
 (global-set-key (kbd "S-<down>") 'previous-multiframe-window)
