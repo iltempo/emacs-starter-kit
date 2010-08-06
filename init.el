@@ -90,8 +90,6 @@
 (if window-system
   (color-theme-blackboard))
 (require 'carbon-font)
-(fixed-width-set-default-fontset
- "-apple-inconsolata-medium-r-normal--18-0-72-72-0-m-iso10646-1")
 
 (add-to-list 'load-path
              "~/.emacs.d/iltempo/yasnippet-0.6.1c")
@@ -103,5 +101,13 @@
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
+
+(defun toggle-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+                                           nil
+                                           'fullboth)))
+
+(global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 ;;; init.el ends here
