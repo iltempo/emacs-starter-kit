@@ -89,6 +89,9 @@
 
 (if window-system
   (color-theme-blackboard))
+(require 'carbon-font)
+(fixed-width-set-default-fontset
+ "-apple-inconsolata-medium-r-normal--18-0-72-72-0-m-iso10646-1")
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
