@@ -93,6 +93,12 @@
 (fixed-width-set-default-fontset
  "-apple-inconsolata-medium-r-normal--18-0-72-72-0-m-iso10646-1")
 
+(add-to-list 'load-path
+             "~/.emacs.d/iltempo/yasnippet-0.6.1c")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/iltempo/yasnippet-0.6.1c/snippets")
+
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
     (setenv "PATH" path-from-shell)
