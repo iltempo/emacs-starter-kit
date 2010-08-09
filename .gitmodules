@@ -1,3 +1,6 @@
 [submodule "iltempo/feature-mode"]
 	path = iltempo/feature-mode
 	url = http://github.com/michaelklishin/cucumber.el.git
+[submodule "iltempo/rinari"]
+	path = iltempo/rinari
+	url = http://github.com/technomancy/rinari.git
