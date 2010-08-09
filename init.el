@@ -88,8 +88,7 @@
 (global-set-key (kbd "S-<down>") 'previous-multiframe-window)
 
 (if window-system
-  (color-theme-blackboard))
-(require 'carbon-font)
+    (color-theme-blackboard))
 
 (add-to-list 'load-path
              "~/.emacs.d/iltempo/yasnippet-0.6.1c")
