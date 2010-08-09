@@ -70,7 +70,7 @@
 (if (file-exists-p system-specific-config) (load system-specific-config))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
-  (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+    (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
 (add-to-list 'load-path (concat dotfiles-dir "/iltempo"))
 (add-to-list 'load-path (concat dotfiles-dir "/iltempo/feature-mode"))
@@ -84,6 +84,8 @@
 
 (require 'feature-mode)
 
+(vc-mode)
+
 (global-set-key (kbd "S-<up>") 'next-multiframe-window)
 (global-set-key (kbd "S-<down>") 'previous-multiframe-window)
 
@@ -96,6 +98,15 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/iltempo/yasnippet-0.6.1c/snippets")
 
+;; Interactively Do Things (highly recommended, but not strictly required)
+(require 'ido)
+(ido-mode t)
+
+;; Rinari
+(add-to-list 'load-path "~/.emacs.d/iltempo/rinari")
+(require 'rinari)
+
+
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
     (setenv "PATH" path-from-shell)
@@ -105,7 +116,7 @@
   (interactive)
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
                                            nil
-                                           'fullboth)))
+                                         'fullboth)))
 
 (global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
