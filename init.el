@@ -104,6 +104,8 @@
 
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/iltempo/rinari")
+(require 'ido)
+(ido-mode t)
 (require 'rinari)
 
 
